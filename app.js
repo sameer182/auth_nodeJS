@@ -1,7 +1,18 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 const app = express();
+
+//Mongodb config
+const db = require('./config/keys').MongoURI;
+
+
+//Connect to mongodb
+mongoose.connect(db)
+ .then(() => console.log("MongoDB connected successfully...."))
+ .catch(err => console.log(err));
 
 //EJS
 app.use(expressLayouts);
