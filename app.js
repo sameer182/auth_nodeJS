@@ -18,6 +18,10 @@ mongoose.connect(db)
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
+//Body parser
+app.use(express.urlencoded({ extended: false}));
+
+
 //Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
